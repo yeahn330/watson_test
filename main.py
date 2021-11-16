@@ -40,7 +40,6 @@ def result():
         if response['output']['generic']:
             if response['output']['generic'][0]['response_type'] == 'text':
                 result = response['output']['generic'][0]['text']
-                print(response['output']['generic'][0]['text'])
         return result
 
 if __name__ == '__main__':

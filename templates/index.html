@@ -44,13 +44,16 @@
     <script >
         $('#watson').keydown(function(key) {
             if (key.keyCode == 13) {
-               $.ajax({
+              existingText = $('#watson').val()
+              if($('#watson').val().indexOf("./")!=-1){
+                  $.ajax({
                   url:'/result',
                   method: 'post',
                   success:function(data){
-                      $('#watson').val(data);
+                      $('#watson').val(existingText + data);
                   }
-              })
+                })
+              }
             }
         })
     </script>
