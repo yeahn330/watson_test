@@ -46,8 +46,10 @@
             if (key.keyCode == 13) {
               existingText = $('#watson').val()
               if($('#watson').val().indexOf("./")!=-1){
+                  existingText = existingText.replace($('#watson').val(),'')
                   $.ajax({
                   url:'/result',
+                  data: { data: $('#watson').val() },
                   method: 'post',
                   success:function(data){
                       $('#watson').val(existingText + data);

@@ -26,12 +26,14 @@ def result():
            assistant_id=assistant_id
         ).get_result()
 
+        print(request.form)
+
         response = assistant.message(
            assistant_id=assistant_id,
            session_id=sessres['session_id'],
            input={
                'message_type': 'text',
-               'text': '초기세팅'
+               'text': request.form.get("data")
            }
         ).get_result()
 
